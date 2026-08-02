@@ -92,8 +92,15 @@ Path resolution: skills read `config/workshops.toml` relative to their own base 
    and seeded both printers: **Bambu Lab H2S** ("Big Boy", 340×320×340, AMS 2 Pro +
    aftermarket HEPA) and **Bambu Lab X1-Carbon** (256×256×256, 2× AMS). Open TODOs on
    the notes: HEPA filter model, exact shop locations. Add remaining shop tools as we go.
-3. **gridfinity** — ⏳ pending. `brew install openscad` (needs OK), vendor
-   `gridfinity-rebuilt`, build research→parametric→STL pipeline, test to a real STL.
+3. **gridfinity** — ✔ **built + tested.** OpenSCAD **snapshot** build installed
+   (`openscad@snapshot`; the 2021.01 stable can't parse the library's syntax — trailing
+   commas). Vendored `gridfinity-rebuilt` (pinned `910e22d`, MIT) under
+   `skills/gridfinity/vendor/`. Driver `scripts/generate.py`: object dims → grid math
+   (from the library's own constants) → headless STL + `params.json` manifest, capped by
+   the printer bed (from tool-advisor), with a verify-and-re-render loop and a hard bed
+   check. Tested end-to-end: rectangular bin, cylindrical + dividers + magnet holes, and
+   the bed-overflow failure path. Handles rectangular / cylindrical / uniform
+   multi-compartment; non-uniform compartments deferred to v2.
 
 ## Decisions made
 

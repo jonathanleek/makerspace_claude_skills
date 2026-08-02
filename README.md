@@ -33,16 +33,24 @@ skills/
   tool-advisor/         # "what can my shop do?"; feeds constraints to other skills
     SKILL.md
     references/inventory-format.md
-  gridfinity/           # (planned) dimensions -> parametric bin -> STL
+  gridfinity/           # object dimensions -> parametric bin -> headless STL
+    SKILL.md
+    scripts/generate.py         # sizing + render driver
+    vendor/gridfinity-rebuilt/  # pinned upstream OpenSCAD lib (MIT)
+    references/gridfinity-spec.md
 ```
+
+> `gridfinity` needs the OpenSCAD **snapshot/nightly** build
+> (`brew install --cask openscad@snapshot`) — the vendored library uses syntax
+> the 2021.01 stable release can't parse.
 
 ## Skills
 
 - **`/tool-advisor`** — capability Q&A over a per-tool inventory in the workshop
   vault ("can I cut X on my Y?", "what bit for Z?"), and supplies hard
   constraints (print-bed size, throat depth) to other skills.
-- **`/gridfinity`** — *(planned)* research an object's dimensions → parametric
-  Gridfinity bin → headless STL, sized to the printer bed from `tool-advisor`.
+- **`/gridfinity`** — research an object's dimensions → parametric Gridfinity bin
+  → headless STL + params manifest, sized to the printer bed from `tool-advisor`.
 
 ## Configuration
 
