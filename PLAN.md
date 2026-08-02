@@ -79,12 +79,21 @@ Path resolution: skills read `config/workshops.toml` relative to their own base 
 
 ## Build order
 
-1. **Plumbing** — scaffold repo, `install.sh` (self-locating), `config/workshops.toml`
-   (points at the vault), README. Run install; verify a skill registers.
-2. **tool-advisor** — define tool-note schema (frontmatter, matching vault conventions),
-   seed a couple real tools as examples, then populate together.
-3. **gridfinity** — `brew install openscad`, vendor `gridfinity-rebuilt`, build
-   research→parametric→STL pipeline, test end-to-end to a real STL.
+1. **Plumbing** — ✔ **done.** `install.sh` (self-locating, idempotent, warns when run
+   from a Conductor worktree), `config/workshops.toml` (points at the WW vault + inventory
+   folder), `.gitignore`, README. Verified: `install.sh` symlinked `tool-advisor` into
+   `~/.claude/skills` and the worktree-guard warning fired; the test symlink was then
+   removed (it pointed into the worktree — fragile). **Real install runs from the stable
+   checkout after this branch merges.**
+2. **tool-advisor** — ✔ **built + seeded.** Skill (`skills/tool-advisor/SKILL.md` +
+   `references/inventory-format.md`): tool-note frontmatter schema, config-driven
+   vault/inventory resolution, capability Q&A, constraint hand-off to gridfinity.
+   Tool-notes location confirmed → created `Shop Infrastructure/Tools/` in the WW vault
+   and seeded both printers: **Bambu Lab H2S** ("Big Boy", 340×320×340, AMS 2 Pro +
+   aftermarket HEPA) and **Bambu Lab X1-Carbon** (256×256×256, 2× AMS). Open TODOs on
+   the notes: HEPA filter model, exact shop locations. Add remaining shop tools as we go.
+3. **gridfinity** — ⏳ pending. `brew install openscad` (needs OK), vendor
+   `gridfinity-rebuilt`, build research→parametric→STL pipeline, test to a real STL.
 
 ## Decisions made
 
@@ -97,8 +106,7 @@ Path resolution: skills read `config/workshops.toml` relative to their own base 
 
 ## Open confirms
 
-- **Tool notes location:** proposed `Shop Infrastructure/Tools/` in the vault (one note per
-  tool, matching existing conventions) — vs. a top-level `Tooling/`. Not yet confirmed.
+- **Tool notes location:** ✔ confirmed — `Shop Infrastructure/Tools/` in the vault.
 - **`brew install openscad`** at step 3 — OK to install. Not yet confirmed.
 
 ## Relocation status (in progress)

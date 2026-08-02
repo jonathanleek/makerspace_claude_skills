@@ -1,0 +1,20 @@
+# Workshop registry: workshop id -> context/data vault (absolute path).
+#
+# Skills read this file relative to their own base dir (repo config/, single
+# source of truth) to locate per-workshop data. Tooling lives in this repo;
+# data lives in the vaults referenced here.
+#
+# Add Arch Reactor as a second [workshops.*] block when its vault exists.
+
+default = "westbound_workshop"
+
+[workshops.westbound_workshop]
+name  = "Westbound Workshop"
+vault = "/Users/jonathanleek/Documents/git/westbound_workshop/westbound_workshop_vault"
+# Folder (relative to vault) holding one note per power tool / machine.
+# PROPOSED, not yet confirmed — see PLAN.md "Open confirms".
+tools_subpath = "Shop Infrastructure/Tools"
+
+# [workshops.arch_reactor]
+# name  = "Arch Reactor"
+# vault = "/Users/jonathanleek/Documents/git/arch_reactor/arch_reactor_vault"

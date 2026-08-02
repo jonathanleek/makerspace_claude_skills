@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Conductor workspace scratch (collaboration files, not source)
+.context/
+
+# gridfinity: vendored upstream + generated output land under skills/gridfinity/
+# (kept out of git; regenerated/vendored on demand). Uncomment once wired up.
+# skills/gridfinity/vendor/
+# skills/gridfinity/**/output/
