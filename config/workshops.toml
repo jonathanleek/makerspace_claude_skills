@@ -10,7 +10,7 @@ default = "westbound_workshop"
 
 [workshops.westbound_workshop]
 name  = "Westbound Workshop"
-vault = "/Users/jonathanleek/Documents/git/westbound_workshop/westbound_workshop_vault"
+vault = "/Users/jonathanleek/Documents/git/westboundworkshop/westbound_workshop_vault"
 # Folder (relative to vault) holding one note per power tool / machine.
 # PROPOSED, not yet confirmed — see PLAN.md "Open confirms".
 tools_subpath = "Shop Infrastructure/Tools"
